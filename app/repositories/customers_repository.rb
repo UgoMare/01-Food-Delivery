@@ -2,12 +2,12 @@ require_relative '../models/customer'
 require_relative 'base_repository'
 
 class CustomersRepository < BaseRepository
-  def format(row)
+  def build_element(row)
     row[:id] = row[:id].to_i
     Customer.new(row)
   end
 
-  def to_csv(customer)
+  def build_row(customer)
     [customer.id, customer.name, customer.address]
   end
 

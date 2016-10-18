@@ -15,7 +15,6 @@ class Router
   private
 
   def print_menu
-    puts 'What is your choice'
     puts '1 - List the meals'
     puts '2 - Add a new meal'
     puts '3 - List the customers'
@@ -23,7 +22,9 @@ class Router
   end
 
   def ask_for_action
-    gets.chomp.to_i
+    puts 'What is your choice?'
+    print '> '
+    return gets.chomp.to_i
   end
 
   def route(action)

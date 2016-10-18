@@ -26,7 +26,7 @@ class BaseRepository
   def load_csv
     csv_options = { headers: :first_row, header_converters: :symbol }
     CSV.foreach(@csv_file, csv_options) do |row|
-      element = format(row)
+      element = build_element(row)
       @elements << element
       @next_id = element.id
     end
@@ -37,7 +37,7 @@ class BaseRepository
     CSV.open(@csv_file, 'w') do |csv|
       csv << csv_header
       @elements.each do |element|
-        csv << to_csv(element)
+        csv << build_row(element)
       end
     end
   end

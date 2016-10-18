@@ -1,6 +1,6 @@
 class CustomersView
-  def ask_for(params)
-    puts "#{params}?"
+  def ask_for(label)
+    puts "#{label}?"
     print '> '
     gets.chomp
   end
