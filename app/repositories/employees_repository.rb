@@ -18,4 +18,8 @@ class EmployeesRepository < BaseRepository
   def find_by_username(username)
     all.find { |employee| employee.username == username }
   end
+
+  def delivery_guys
+    all.select { |employee| employee.role == 'delivery_guy' }
+  end
 end
