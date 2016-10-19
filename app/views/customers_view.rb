@@ -1,10 +1,6 @@
-class CustomersView
-  def ask_for(label)
-    puts "#{label}?"
-    print '> '
-    gets.chomp
-  end
+require_relative 'base_view'
 
+class CustomersView < BaseView
   def list(customers)
     customers.each do |customer|
       puts "#{customer.name} #{customer.address}"

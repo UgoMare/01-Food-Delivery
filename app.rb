@@ -6,8 +6,15 @@ require_relative 'app/models/customer'
 require_relative 'app/repositories/customers_repository'
 require_relative 'app/controllers/customers_controller'
 
+require_relative 'app/repositories/employees_repository'
+require_relative 'app/controllers/sessions_controller'
+
 
 require_relative 'router'
+
+employees_csv = 'data/employees.csv'
+employees_repository = EmployeesRepository.new(employees_csv)
+session_controller = SessionsController.new(employees_repository)
 
 
 meals_csv = 'data/meals.csv'
@@ -19,5 +26,5 @@ customers_repository = CustomersRepository.new(customers_csv)
 customers_controller = CustomersController.new(customers_repository)
 
 
-router = Router.new(meals_controller, customers_controller)
+router = Router.new(meals_controller, customers_controller, session_controller)
 router.run
