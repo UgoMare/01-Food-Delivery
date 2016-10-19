@@ -16,8 +16,8 @@ class MealsController
     # Create a new instance of meal
     # Add my instance to my repo
 
-    name = @meals_view.ask_for_name
-    price = @meals_view.ask_for_price
+    name = @meals_view.ask_for('Name')
+    price = @meals_view.ask_for_value('Price')
     meal = Meal.new(name: name, price: price)
     @meals_repository.add(meal)
   end

@@ -7,4 +7,8 @@ class Customer
     @name = attributes[:name]
     @address = attributes[:address]
   end
+
+  def to_s
+    "#{@name} #{@address}"
+  end
 end

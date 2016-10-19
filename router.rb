@@ -12,10 +12,12 @@ class Router
         if @employee.manager?
           print_menu_manager
           action = ask_for_action
+          print `clear`
           route_manager(action)
         else
           print_menu_delivery_guy
           action = ask_for_action
+          print `clear`
           route_delivery_guy(action)
         end
       end

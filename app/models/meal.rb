@@ -12,4 +12,8 @@ class Meal
     @name = attributes[:name]
     @price = attributes[:price]
   end
+
+  def to_s
+    "#{@name} $#{@price}"
+  end
 end

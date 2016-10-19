@@ -12,8 +12,8 @@ class SessionsController
     #3. Find an employee with this username
     #4. Compare password of the employee with the given password
 
-    username = @sessions_view.ask_for('Username?')
-    password = @sessions_view.ask_for('Password?')
+    username = @sessions_view.ask_for('Username')
+    password = @sessions_view.ask_for('Password')
     @employee = @employees_repository.find_by_username(username)
     if @employee && @employee.password == password
       return @employee
