@@ -1,3 +1,5 @@
+require 'sqlite3'
+
 require_relative 'app/models/meal'
 require_relative 'app/repositories/meals_repository'
 require_relative 'app/controllers/meals_controller'
@@ -12,11 +14,12 @@ require_relative 'app/controllers/sessions_controller'
 require_relative 'app/repositories/orders_repository'
 require_relative 'app/controllers/orders_controller'
 
-
 require_relative 'router'
 
-employees_csv = 'data/employees.csv'
-employees_repository = EmployeesRepository.new(employees_csv)
+# employees_csv = 'data/employees.csv'
+db_path = 'data/food_delivery.db'
+db = SQLite3::Database.new(db_path)
+employees_repository = EmployeesRepository.new(db)
 session_controller = SessionsController.new(employees_repository)
 
 
